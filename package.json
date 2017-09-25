@@ -1,0 +1,23 @@
+{
+  "name": "performancevc",
+  "version": "1.0.0",
+  "description": "Performance.VC API Wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adileo/performance-node.git"
+  },
+  "author": "Adileo Barone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adileo/performance-node/issues"
+  },
+  "homepage": "https://github.com/adileo/performance-node#readme",
+  "dependencies": {
+    "moment": "^2.18.1",
+    "request": "^2.82.0"
+  }
+}
