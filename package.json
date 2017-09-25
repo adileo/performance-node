@@ -1,6 +1,6 @@
 {
   "name": "performancevc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Performance.VC API Wrapper",
   "main": "index.js",
   "scripts": {
