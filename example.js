@@ -1,6 +1,7 @@
 var performance = require('./index');
 
-var company = new performance.Client('cfa2273eca8b5fea74575efc1e2531ee129db71f4a0755767507941e07fc6f5e');
+var company = new performance.Company('cfa2273eca8b5fea74575efc1e2531ee129db71f4a0755767507941e07fc6f5e');
+//company.baseUrl = "http://performance.app"; // For testing porpuse
 
 company.metric('Test').datapoint(new Date()).upsert(20).then(function(val){
   console.log(val);

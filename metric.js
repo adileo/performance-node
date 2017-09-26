@@ -4,13 +4,13 @@ var datapoint = require('./datapoint');
 // var moment = require('moment');
 
 // Constructor
-function Metric(json, client) {
+function Metric(json, company) {
   for(var key in json) {
     if(json.hasOwnProperty(key)) {
         this[key] = json[key];
     }
   }
-  this.client = client;
+  this.company = company;
 }
 
 // class methods
@@ -24,12 +24,13 @@ Metric.prototype.datapoints = function() {
 
   return new Promise(function (fulfill, reject){
   request.get({
-   url: self.client.baseUrl + '/api/datapoint?metric_name='+encodeURI(self.name),
-   rejectUnauthorized: self.client.ignoreHttps ? false : true,
+   url: self.company.baseUrl + '/api/datapoint?metric_name='+encodeURI(self.name),
+   rejectUnauthorized: self.company.ignoreHttps ? false : true,
    headers: {
-      'Authorization' : 'Bearer ' + self.client.apiToken
+      'Authorization' : 'Bearer ' + self.company.apiToken
    },
-   method: 'GET'
+   method: 'GET',
+   agentOptions: self.company.agentOptions
   },
   function (e, r, body) {
 

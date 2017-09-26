@@ -28,13 +28,14 @@ Datapoint.prototype.upsert = function(value) {
   var self = this;
   return new Promise(function (fulfill, reject){
     request.post({
-     url: self.metric.client.baseUrl + '/api/datapoint',
-     rejectUnauthorized: self.metric.client.ignoreHttps ? false : true,
+     url: self.metric.company.baseUrl + '/api/datapoint',
+     rejectUnauthorized: self.metric.company.ignoreHttps ? false : true,
      form: params,
      headers: {
-        'Authorization' : 'Bearer ' + self.metric.client.apiToken
+        'Authorization' : 'Bearer ' + self.metric.company.apiToken
      },
-     method: 'POST'
+     method: 'POST',
+     agentOptions: self.metric.company.agentOptions
     },
     function (e, r, body) {
         if(e){
@@ -58,13 +59,14 @@ Datapoint.prototype.insert = function(value) {
   var self = this;
   return new Promise(function (fulfill, reject){
     request.post({
-     url: self.metric.client.baseUrl + '/api/datapoint',
-     rejectUnauthorized: self.metric.client.ignoreHttps ? false : true,
+     url: self.metric.company.baseUrl + '/api/datapoint',
+     rejectUnauthorized: self.metric.company.ignoreHttps ? false : true,
      form: params,
      headers: {
-        'Authorization' : 'Bearer ' + self.metric.client.apiToken
+        'Authorization' : 'Bearer ' + self.metric.company.apiToken
      },
-     method: 'POST'
+     method: 'POST',
+     agentOptions: self.metric.company.agentOptions
     },
     function (e, r, body) {
         if(e){
@@ -87,13 +89,14 @@ Datapoint.prototype.remove = function() {
   var self = this;
   return new Promise(function (fulfill, reject){
     request.post({
-     url: self.metric.client.baseUrl + '/api/datapoint',
-     rejectUnauthorized: self.metric.client.ignoreHttps ? false : true,
+     url: self.metric.company.baseUrl + '/api/datapoint',
+     rejectUnauthorized: self.metric.company.ignoreHttps ? false : true,
      form: params,
      headers: {
-        'Authorization' : 'Bearer ' + self.metric.client.apiToken
+        'Authorization' : 'Bearer ' + self.metric.company.apiToken
      },
-     method: 'POST'
+     method: 'POST',
+     agentOptions: self.metric.company.agentOptions
     },
     function (e, r, body) {
         if(e){
@@ -117,13 +120,14 @@ Datapoint.prototype.increment = function(value) {
   var self = this;
   return new Promise(function (fulfill, reject){
     request.post({
-     url: self.metric.client.baseUrl + '/api/datapoint',
-     rejectUnauthorized: self.metric.client.ignoreHttps ? false : true,
+     url: self.metric.company.baseUrl + '/api/datapoint',
+     rejectUnauthorized: self.metric.company.ignoreHttps ? false : true,
      form: params,
      headers: {
-        'Authorization' : 'Bearer ' + self.metric.client.apiToken
+        'Authorization' : 'Bearer ' + self.metric.company.apiToken
      },
-     method: 'POST'
+     method: 'POST',
+     agentOptions: self.metric.company.agentOptions
     },
     function (e, r, body) {
         if(e){
@@ -147,13 +151,14 @@ Datapoint.prototype.decrement = function(value) {
   var self = this;
   return new Promise(function (fulfill, reject){
     request.post({
-     url: self.metric.client.baseUrl + '/api/datapoint',
-     rejectUnauthorized: self.metric.client.ignoreHttps ? false : true,
+     url: self.metric.company.baseUrl + '/api/datapoint',
+     rejectUnauthorized: self.metric.company.ignoreHttps ? false : true,
      form: params,
      headers: {
-        'Authorization' : 'Bearer ' + self.metric.client.apiToken
+        'Authorization' : 'Bearer ' + self.metric.company.apiToken
      },
-     method: 'POST'
+     method: 'POST',
+     agentOptions: self.metric.company.agentOptions
     },
     function (e, r, body) {
         if(e){

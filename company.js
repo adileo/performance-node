@@ -1,19 +1,24 @@
 'use strict';
 var request = require('request');
 var metric = require('./metric');
+var fs = require('fs');
+var path = require('path');
 // Constructor
-function Client(token) {
+function Company(token) {
   this.apiToken = token;
-  this.baseUrl = "http://performance.app";
+  this.baseUrl = "https://www.performance.vc";
   this.ignoreHttps = false;
+  this.agentOptions= {
+        ca: fs.readFileSync('./trusted.pem')
+  };
 }
 
 // class methods
-Client.prototype.metric = function(name) {
+Company.prototype.metric = function(name) {
   return new metric({name:name}, this);
 };
 
-Client.prototype.metrics = function() {
+Company.prototype.metrics = function() {
   var self = this;
   return new Promise(function (fulfill, reject){
     request.get({
@@ -22,7 +27,8 @@ Client.prototype.metrics = function() {
      headers: {
         'Authorization' : 'Bearer ' + self.apiToken
      },
-     method: 'GET'
+     method: 'GET',
+     agentOptions: self.agentOptions
     },
     function (e, r, body) {
 
@@ -43,4 +49,4 @@ Client.prototype.metrics = function() {
 };
 
 // export the class
-module.exports = Client;
+module.exports = Company;

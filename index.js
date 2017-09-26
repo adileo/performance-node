@@ -1,9 +1,9 @@
 'use strict';
-var client = require('./client');
+var client = require('./company');
 
 // Constructor
 function Performance() {
-  this.Client = require('./client');
+  this.Company = require('./company');
 }
 
 // class methods
