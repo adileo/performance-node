@@ -3,7 +3,7 @@ Performance.VC API wrapper for Node.js
 
 `npm install performancevc --save`
 
-```
+```js
 var performance = require('performancevc');
 
 var company = new performance.Company('cfa2273eca8b5fea74575efc1e2531ee129db71f4a0755767507941e07fc6f5e');
